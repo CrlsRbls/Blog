@@ -1,13 +1,12 @@
 <div class="container">
 <br>
     <div class="btn-group">
-      <% if current_user&.admin? %>
+      
         <%= link_to "Edit", edit_category_path(@category), class: "btn btn-primary" %> &nbsp 
-        <%= button_to "Delete", @category, method: :delete, class:"btn btn-danger" %>
-      <% end %>
+        <%= button_to "Delete", @category, method: :delete, class:"btn btn-danger" %> &nbsp 
+        <%= link_to "Back", categories_path, class: "btn btn-secondary" %>
+    
     </div>  
   <%= render @category %>
-    <div>
-      <%= link_to "Back", categories_path, class: "btn btn-primary" %>
-    </div>
+    
 </div>

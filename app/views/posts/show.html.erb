@@ -1,11 +1,14 @@
 <div class="container">
   <%= render @post %>
-    <div>
-      <%= link_to "Edit this post", edit_post_path(@post) %> |
-      <%= link_to "Back to posts", posts_path %>
-      <%= button_to "Destroy this post", @post, method: :delete %>
+   <% if @post.user.id == current_user.id %>
+    <div class="btn-group">
+  <%= link_to "Edit", edit_post_path(@post), class:"btn btn-success" %> &nbsp
+  <%= button_to "Destroy this post", @post, method: :delete, class:"btn btn-danger" %> &nbsp
+  <% end %>
+      <%= link_to "Back to posts", posts_path, class:"btn btn-info"%>
     </div>
 </div>
+<br>
 <div class="container">
   <%= render 'comments/form', 
     post: @post, 
@@ -15,3 +18,5 @@
     <%= render 'comments/comment', post: @post, comment: comment %>
   <% end %>
 </div>
+
+
